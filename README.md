@@ -4,8 +4,8 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 
 ## Tabla de contenido
 
-- [Hola Mundo](#holamundo).
-- [Tipos de datos](#tiposdedatos).
+- [Hola Mundo](#hola-mundo).
+- [Tipos de datos](#tipos-de-datos).
 - [Comentarios](#comentarios).
 - [Argumentos por posición](#argumentos-por-posicion).
 
