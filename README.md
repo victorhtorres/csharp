@@ -4,14 +4,19 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 
 ## Tabla de contenido
 
+- [Hola Mundo](#holamundo).
 - [Comentarios](#comentarios).
 - [Argumentos por posición](#argumentos-por-posicion).
+
+## Hola mundo
+
+
 
 ## Comentarios
 
 Sintaxis:
 
-```c#
+```csharp
 
 // Esto es un comentario de una linea.
 
@@ -24,7 +29,7 @@ de más de una linea */
 
 Sintaxis:
 
-```c#
+```csharp
 
 string cadena = "Mundo";
 
