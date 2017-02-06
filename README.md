@@ -10,6 +10,27 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 
 ## Hola mundo
 
+Hola mundo por medio de consola.
+
+Sintaxis:
+
+```csharp
+
+using System;
+
+namespace HolaMundo
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hola mundo!");
+            Console.ReadLine();
+        }
+    }
+}
+
+```
 
 
 ## Comentarios
