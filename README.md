@@ -34,3 +34,4 @@ Console.WriteLine("Hola {0}", cadena);
 
 ```
 El {0} define la posición del argumento para reemplazarlo por el valor que tenga dicha variable.
+=======
