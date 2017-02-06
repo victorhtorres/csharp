@@ -25,8 +25,8 @@ namespace HolaMundo
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hola mundo!");
-            Console.ReadLine();
+            Console.WriteLine("Hola mundo!"); // Hola mundo!
+            Console.ReadLine(); // Permite que el programa no termine, después de haber leído la linea anterior.
         }
     }
 }
@@ -61,7 +61,7 @@ string cadena = "Mundo";
 
 Console.WriteLine("Hola {0}", cadena);
 
-// salida: Hola Mundo
+// Hola Mundo
 
 ```
 El {0} define la posición del argumento para reemplazarlo por el valor que tenga dicha variable.
