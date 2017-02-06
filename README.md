@@ -5,6 +5,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 ## Tabla de contenido
 
 - [Hola Mundo](#holamundo).
+- [Tipos de datos](#tiposdedatos).
 - [Comentarios](#comentarios).
 - [Argumentos por posición](#argumentos-por-posicion).
 
@@ -31,6 +32,10 @@ namespace HolaMundo
 }
 
 ```
+
+## Tipos de datos
+
+![Tabla de tipos de datos](util/tipos-datos.png)
 
 
 ## Comentarios
