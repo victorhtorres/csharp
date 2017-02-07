@@ -87,3 +87,29 @@ Las instrucciones de control de flujo, como if else y switch, son muy similares 
 
 Estas instrucciones son idénticas en ambos lenguajes.
 
+Sintaxis:
+
+```csharp
+
+if(condición){
+	// bloque de código
+}
+
+
+if(condición){
+	// bloque de código
+}else{
+	// bloque de código
+}
+
+
+if(condición){
+	// bloque de código
+}else if(condición){
+	// bloque de código
+}else{
+	// bloque de código
+}
+
+```
+
