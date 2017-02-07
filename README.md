@@ -4,7 +4,8 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 
 ## Tabla de contenido
 
-- [Hola Mundo](#hola-mundo).
+- [Hola Mundo en consola](#hola-mundo-en-consola).
+- [Hola Mundo en GUI](#hola-mundo-en-gui).
 - [Tipos de datos](#tipos-de-datos).
 - [Operadores](#operadores).
 - [Comentarios](#comentarios).
@@ -20,7 +21,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Propiedades implementadas automáticamente](#propiedades-setter-y-getter-automatico).
 
 
-## Hola mundo
+## Hola mundo en consola
 
 Hola mundo por medio de consola.
 
@@ -43,6 +44,18 @@ namespace HolaMundo
 }
 
 ```
+
+## Hola Mundo en GUI
+
+En Visual Studio > File > New > Project > Windows Form Application
+
+![Hola Mundo en GUI](util/hola-mundo-gui.png)
+
+- Para agregar un texto en la ventana: View > Toolbox > opción Label > arrastrar a la ventana.
+- Para agregar una imagen en la ventana: View > Toolbox > opción pictureBox > arrastrar a la ventana.
+
+Para ver las propiedades de cada opción, se debe dar clic derecho encima de cada una en la ventana GUI y podrá personalizarlo.
+
 
 ## Tipos de datos
 
