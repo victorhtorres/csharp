@@ -6,8 +6,10 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 
 - [Hola Mundo](#hola-mundo).
 - [Tipos de datos](#tipos-de-datos).
+- [Operadores](#operadores).
 - [Comentarios](#comentarios).
 - [Argumentos por posición](#argumentos-por-posicion).
+- [Variables de tipo constante](#variables-de-tipo-constante).
 
 ## Hola mundo
 
@@ -51,6 +53,12 @@ de más de una linea */
 
 ```
 
+## Operadores
+
+C# ofrece todos los operadores compatibles con Java aplicables, como se muestra en la tabla siguiente. Al final de la tabla, verá algunos operadores nuevos disponibles en C#, pero no en Java:
+
+![Tabla de operadores en c#](util/operadores.png)
+
 ## Argumentos por posicion
 
 Sintaxis:
@@ -65,3 +73,7 @@ Console.WriteLine("Hola {0}", cadena);
 
 ```
 El {0} define la posición del argumento para reemplazarlo por el valor que tenga dicha variable.
+
+## Variables de tipo constante
+
+ En C# utiliza la palabra clave `const`. Además de const, C# proporciona la palabra clave `readonly` para declarar variables a las que se puede asignar un valor una vez en tiempo de ejecución, ya sea en la instrucción de declaración o en otra parte del constructor. Después de la inicialización, el valor de una variable readonly no puede cambiar.
