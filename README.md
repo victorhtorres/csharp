@@ -10,6 +10,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Comentarios](#comentarios).
 - [Argumentos por posición](#argumentos-por-posicion).
 - [Variables de tipo constante](#variables-de-tipo-constante).
+- [Controles de flujo](#controles-de-flujo).
 
 ## Hola mundo
 
@@ -77,3 +78,12 @@ El {0} define la posición del argumento para reemplazarlo por el valor que teng
 ## Variables de tipo constante
 
  En C# utiliza la palabra clave `const`. Además de const, C# proporciona la palabra clave `readonly` para declarar variables a las que se puede asignar un valor una vez en tiempo de ejecución, ya sea en la instrucción de declaración o en otra parte del constructor. Después de la inicialización, el valor de una variable readonly no puede cambiar.
+
+## Controles de flujo
+
+Las instrucciones de control de flujo, como if else y switch, son muy similares en Java y C#.
+
+### if, else y else if
+
+Estas instrucciones son idénticas en ambos lenguajes.
+
