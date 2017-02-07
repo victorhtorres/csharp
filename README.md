@@ -11,6 +11,8 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Argumentos por posición](#argumentos-por-posicion).
 - [Variables de tipo constante](#variables-de-tipo-constante).
 - [Controles de flujo](#controles-de-flujo).
+ - [if-else](#if-else).
+ - [switch](#switch).
 
 ## Hola mundo
 
@@ -83,7 +85,7 @@ El {0} define la posición del argumento para reemplazarlo por el valor que teng
 
 Las instrucciones de control de flujo, como if else y switch, son muy similares en Java y C#.
 
-### if, else y else if
+### if-else
 
 Estas instrucciones son idénticas en ambos lenguajes.
 
@@ -109,6 +111,42 @@ if(condición){
 	// bloque de código
 }else{
 	// bloque de código
+}
+
+```
+
+### Switch
+
+C# exige el uso de una instrucción break o goto al final de cada caso y, si no hay ninguna presente, el compilador produce el siguiente error: El control no puede pasar explícitamente de una etiqueta de caso a otra.
+
+Se debe tener en cuenta que donde un caso no especifica un código para ejecutar cuando coincide ese caso, el control pasará al caso siguiente.
+
+Ejemplo:
+
+```csharp
+
+static void Main(string[] args)
+{
+    switch (args[0])
+    {
+        case "copy":
+            //...
+            break;
+
+        case "move":
+            //...
+            goto case "delete";
+
+        case "del":
+        case "remove":
+        case "delete":
+            //...
+            break;
+
+        default:
+            //...
+            break;
+    }
 }
 
 ```
