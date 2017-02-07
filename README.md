@@ -16,6 +16,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Instrucciones de bucle](#instrucciones-de-bucle).
  - [For](#for).
  - [Foreach](#foreach).
+ - [While y do while](#while-y-do-while).
 
 
 ## Hola mundo
@@ -187,5 +188,32 @@ static void Main()
         System.Console.WriteLine(s);
     }
 }
+
+```
+
+### While y do while
+
+La sintaxis y el funcionamiento de las instrucciones while y do...while son iguales en ambos lenguajes.
+
+Sintaxis:
+
+```csharp
+
+while (condition)
+{
+    // statements
+}
+
+```
+
+Sintaxis:
+
+```csharp
+
+do
+{
+    // statements
+}
+while(condition);  // Don't forget the trailing ; in do...while loops
 
 ```
