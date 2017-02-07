@@ -13,6 +13,10 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Controles de flujo](#controles-de-flujo).
  - [if-else](#if-else).
  - [switch](#switch).
+- [Instrucciones de bucle](#instrucciones-de-bucle).
+ - [For](#for).
+ - [Foreach](#foreach).
+
 
 ## Hola mundo
 
@@ -151,3 +155,37 @@ static void Main(string[] args)
 
 ```
 
+## Instrucciones de bucle
+
+La sintaxis y el funcionamiento de los bucles for son iguales en C# y Java.
+
+### For
+
+Ejemplo:
+
+```csharp
+
+for (int i = 0; i<=9; i++)
+{
+    System.Console.WriteLine(i);
+}
+
+```
+
+### Foreach
+
+C# introduce un nuevo tipo de bucle denominado bucle foreach. El bucle foreach permite la iteración a través de cada elemento en una clase contenedora, como una matriz, que admite la interfaz `IEnumerable`. El código siguiente muestra el uso de la instrucción foreach para obtener el contenido de una matriz:
+
+```csharp
+
+static void Main()
+{
+    string[] arr= new string[] {"Jan", "Feb", "Mar"};
+
+    foreach (string s in arr)
+    {
+        System.Console.WriteLine(s);
+    }
+}
+
+```
