@@ -406,7 +406,8 @@ class RandomIntegers
         for (int counter = 1; counter <= 20; ++counter)
         {
             // pick random integer from 1 to 6
-            Console.Write($"{face} "); // display generated value
+            int number = randomNumbers.Next(1, 7);
+            Console.Write($"{number} "); // display generated value
         }
 
         Console.WriteLine();
