@@ -16,6 +16,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Formato de cadenas numéricas](#formato-de-cadenas-numericas)
 - [Controles de flujo](#controles-de-flujo).
  - [if-else](#if-else).
+ - [Operador condicional ternario](#operador-condicional-ternario).
  - [switch](#switch).
 - [Instrucciones de bucle](#instrucciones-de-bucle).
  - [For](#for).
@@ -183,6 +184,23 @@ if(condición){
 }else{
 	// bloque de código
 }
+
+```
+
+### Operador condicional ternario
+
+Devuelve una de dos expresiones, dependiendo de una condición.
+
+Sintaxis:
+
+`condicion booleana ? acción si es verdadera : acción si es falso `
+
+Ejemplo:
+
+```csharp
+
+var now = new Date();
+var greeting = "Good" + ((now.getHours() > 17) ? " evening." : " day.");
 
 ```
 
