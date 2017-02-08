@@ -20,7 +20,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [For](#for).
  - [Foreach](#foreach).
  - [While y do while](#while-y-do-while).
-[Propiedades implementadas automáticamente](#propiedades-setter-y-getter-automatico).
+- [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
 
 
 ## Hola mundo en consola
