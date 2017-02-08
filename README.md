@@ -13,6 +13,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Secuencias de escape](#secuencias-de-escape).
 - [Variables de tipo constante](#variables-de-tipo-constante).
 - [Interpolación de cadenas](#interpolacion-de-cadenas).
+- [Formato de cadenas numéricas](#formato-de-cadenas-numericas)
 - [Controles de flujo](#controles-de-flujo).
  - [if-else](#if-else).
  - [switch](#switch).
@@ -125,6 +126,29 @@ string nombre = "Victor";
 Console.WriteLine($"Hola {nombre}!");
 
 // Hola Victor!
+
+```
+
+## Formato de cadenas numericas
+
+![Tabla de posibles formatos de cadenas numéricas](util/formato-estandar-numeros.png)
+
+Ejemplo 1:
+
+```csharp
+
+decimal value = 123.456m;
+Console.WriteLine(value.ToString("C2"));
+// $123.46
+
+```
+Ejemplo 2:
+
+```csharp
+
+decimal value = 123.456m;
+Console.WriteLine("Your account balance is {0:C2}.", value);
+// Your account balance is $123.46.
 
 ```
 
