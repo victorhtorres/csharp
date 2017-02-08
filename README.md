@@ -24,6 +24,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [While y do while](#while-y-do-while).
 - [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
 - [Los namespaces más utilizados en .NET Framework](#los-namespaces-mas-utilizados).
+- [Enumeraciones](#enumeraciones).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
@@ -387,6 +388,34 @@ public class Date
 ## Los namespaces mas utilizados
 
 ![Tabla de los namespaces más utilizados en .NET Framework](util/most-important-namespaces.png)
+
+## Enumeraciones
+
+La palabra clave `enum` se utiliza para declarar una enumeración, un tipo distinto que consiste en un conjunto de constantes nombradas denominadas enumerador.
+
+Sintaxis:
+
+```csharp
+
+enum <nombreEnum> : <tipoBase>
+ {
+  <constantes>
+ } 
+
+```
+- nombreEnum: Un nombre para definir el conjunto de las constantes.
+- tipoBase: El tipo de valores que podrán tomar las constantes, ejemplo: int, short, byte, etc...
+
+
+Ejemplo
+
+```csharp
+
+enum Days : byte {Sat=1, Sun, Mon, Tue, Wed, Thu, Fri};
+
+```
+
+Si no se inicializa una constante, entonces arrancan desde cero.
 
 ## Snippets
 
