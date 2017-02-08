@@ -23,6 +23,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Foreach](#foreach).
  - [While y do while](#while-y-do-while).
 - [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
+- [Fuentes](#fuentes).
 
 
 ## Hola mundo en consola
@@ -379,3 +380,8 @@ public class Date
         }
 
 ```
+
+## Fuentes
+
+- [Csharp para desarrolladores java](https://msdn.microsoft.com/es-es/library/ms228358(v=vs.90).aspx).
+- [How to program in c#](http://www.deitel.com/Books/C/VisualCHowtoProgram6e/tabid/3680/Default.aspx).
