@@ -12,6 +12,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Argumentos por posición](#argumentos-por-posicion).
 - [Secuencias de escape](#secuencias-de-escape).
 - [Variables de tipo constante](#variables-de-tipo-constante).
+- [Interpolación de cadenas](#interpolacion-de-cadenas).
 - [Controles de flujo](#controles-de-flujo).
  - [if-else](#if-else).
  - [switch](#switch).
@@ -19,7 +20,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [For](#for).
  - [Foreach](#foreach).
  - [While y do while](#while-y-do-while).
- - [Propiedades implementadas automáticamente](#propiedades-setter-y-getter-automatico).
+[Propiedades implementadas automáticamente](#propiedades-setter-y-getter-automatico).
 
 
 ## Hola mundo en consola
@@ -109,7 +110,23 @@ El {0} define la posición del argumento para reemplazarlo por el valor que teng
 
 ## Variables de tipo constante
 
- En C# utiliza la palabra clave `const`. Además de const, C# proporciona la palabra clave `readonly` para declarar variables a las que se puede asignar un valor una vez en tiempo de ejecución, ya sea en la instrucción de declaración o en otra parte del constructor. Después de la inicialización, el valor de una variable readonly no puede cambiar.
+En C# utiliza la palabra clave `const`. Además de const, C# proporciona la palabra clave `readonly` para declarar variables a las que se puede asignar un valor una vez en tiempo de ejecución, ya sea en la instrucción de declaración o en otra parte del constructor. Después de la inicialización, el valor de una variable readonly no puede cambiar.
+
+## Interpolacion de cadenas
+
+Consiste en introducir valores de variables o expresiones en el interior de cadenas.
+
+Sintaxis:
+
+```csharp
+
+string nombre = "Victor";
+
+Console.WriteLine($"Hola {nombre}!");
+
+// Hola Victor!
+
+```
 
 ## Controles de flujo
 
