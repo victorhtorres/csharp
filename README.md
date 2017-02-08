@@ -23,6 +23,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Foreach](#foreach).
  - [While y do while](#while-y-do-while).
 - [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
+- [Los namespaces más utilizados en .NET Framework](#los-namespaces-mas-utiliados).
 - [Fuentes](#fuentes).
 
 
@@ -380,6 +381,10 @@ public class Date
         }
 
 ```
+
+## Los namespaces mas utilizados
+
+![Tabla de los namespaces más utilizados en .NET Framework](util/most-important-namespaces.png)
 
 ## Fuentes
 
