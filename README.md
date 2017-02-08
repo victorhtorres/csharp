@@ -24,6 +24,8 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [While y do while](#while-y-do-while).
 - [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
 - [Los namespaces más utilizados en .NET Framework](#los-namespaces-mas-utilizados).
+- [Snippets](#snippets).
+ - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
 
 
@@ -385,6 +387,33 @@ public class Date
 ## Los namespaces mas utilizados
 
 ![Tabla de los namespaces más utilizados en .NET Framework](util/most-important-namespaces.png)
+
+## Snippets
+
+Algunos pedazos de códigos reutilizables.
+
+### Numeros aleatorios
+
+```csharp
+
+using System;
+
+class RandomIntegers
+{
+    static void Main()
+    {
+        // loop 20 times
+        for (int counter = 1; counter <= 20; ++counter)
+        {
+            // pick random integer from 1 to 6
+            Console.Write($"{face} "); // display generated value
+        }
+
+        Console.WriteLine();
+    }
+}
+
+```
 
 ## Fuentes
 
