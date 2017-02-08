@@ -10,6 +10,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Operadores](#operadores).
 - [Comentarios](#comentarios).
 - [Argumentos por posición](#argumentos-por-posicion).
+- [Secuencias de escape](#secuencias-de-escape).
 - [Variables de tipo constante](#variables-de-tipo-constante).
 - [Controles de flujo](#controles-de-flujo).
  - [if-else](#if-else).
@@ -95,6 +96,16 @@ Console.WriteLine("Hola {0}", cadena);
 
 ```
 El {0} define la posición del argumento para reemplazarlo por el valor que tenga dicha variable.
+
+## Secuencias de escape
+
+| Secuencia de escape | Descripción |
+| ----- | ---- |
+| `\n` | Nueva linea |
+| `\t` | Tab |
+| `\"` | Doble cita. Se utiliza para colocar un carácter de comillas dobles (") en una cadena. |
+| `\n` | Retorno de carro |
+| `\\` | Para poner blackslash en la cadena |
 
 ## Variables de tipo constante
 
