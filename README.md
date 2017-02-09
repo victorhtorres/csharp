@@ -25,6 +25,10 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
 - [Los namespaces más utilizados en .NET Framework](#los-namespaces-mas-utilizados).
 - [Enumeraciones](#enumeraciones).
+- [Matrices](#matrices).
+ - [Matriz unidimensional](#matriz-unidimensional).
+ - [Matriz Multidimensional](#matriz-multidimensional).
+ - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
@@ -416,6 +420,44 @@ enum Days : byte {Sat=1, Sun, Mon, Tue, Wed, Thu, Fri};
 ```
 
 Si no se inicializa una constante, entonces arrancan desde cero.
+
+## Matrices
+
+Puede almacenar distintas variables del mismo tipo en una estructura de datos de matriz. Para declarar una matriz especifique el tipo de sus elementos.
+
+### Matriz unidimensional
+
+Sintaxis:
+
+```csharp
+
+type[] arrayName = new type[size];
+
+```
+
+### Matriz multidimensional
+
+Sintaxis:
+
+```csharp
+
+type[,] arrayName = new type[size1, size2];
+
+```
+
+### Inicializador de matrices
+
+Ejemplo:
+
+```csharp
+
+int[][] jagged = {new int[] {1, 2},
+                  new int[] {3},
+                  new int[] {4, 5, 6}};
+
+```
+
+[Gráfica donde ilustra un inicializador de matrices multidimensional](util/inicializador-matrices.png)
 
 ## Snippets
 
