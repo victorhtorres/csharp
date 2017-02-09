@@ -29,7 +29,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Matriz unidimensional](#matriz-unidimensional).
  - [Matriz Multidimensional](#matriz-multidimensional).
  - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
- - [LINQ](#linq).
+- [LINQ](#linq).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
