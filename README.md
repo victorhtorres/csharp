@@ -30,6 +30,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Matriz Multidimensional](#matriz-multidimensional).
  - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
 - [LINQ](#linq).
+- [Structs](#structs).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
@@ -754,6 +755,65 @@ class LINQWithListCollection
 
 
 ```
+
+## Structs
+
+Un struct es un tipo de valor. Cuando se crea un struct, la variable a la que se asigna incluye los datos reales del struct. Cuando el struct se asigna a una nueva variable, se copia. La nueva variable y la variable original contienen por tanto dos copias independientes de los mismos datos. Los cambios realizados en una copia no afectan a la otra copia. En general, las clases se utilizan para modelar comportamiento más complejo o datos que se piensan modificar una vez creado un objeto de clase. Los structs son más adecuadas para pequeñas estructuras de datos que contienen principalmente datos que no se piensan modificar una vez creado el struct.
+
+Cuando se realiza una llamada con el operador New sobre una clase, se asigna espacio en el montón. Sin embargo, cuando se crea una instancia de una estructura, el espacio se asigna en la pila. De esta forma, se consigue mejorar el rendimiento. Además, a diferencia de las clases, no tendrá que tratar con referencias a instancias de estructuras. Se trabaja directamente con la instancia de la estructura. Debido a esto, cuando se pasa una estructura a un método, se pasa por valor en vez de como una referencia.
+
+**Cuando utilizar Structs**
+
+- El tipo struct resulta adecuado para representar objetos pequeños como Point, Rectangle y Color.
+- Representa lógicamente un valor único, de forma similar a los tipos primitivos (int, double, etc..).
+- Tiene un tamaño de instancia inferior a 16 bytes.
+- Es inmutable.
+- No tiene que aplicar la conversión boxing con frecuencia.
+
+En todos los demás casos, se debe definir los tipos como clases.
+
+Ejemplo:
+
+```csharp
+
+// struct1.cs
+using System;
+struct SimpleStruct
+{
+    private int xval;
+    public int X
+    {
+        get 
+        {
+            return xval;
+        }
+        set 
+        {
+            if (value < 100)
+                xval = value;
+        }
+    }
+    public void DisplayX()
+    {
+        Console.WriteLine("The stored value is: {0}", xval);
+    }
+}
+
+class TestClass
+{
+    public static void Main()
+    {
+        SimpleStruct ss = new SimpleStruct();
+        ss.X = 5;
+        ss.DisplayX();
+    }
+}
+
+```
+
+Resultado: The stored value is: 5
+
+NOTA: Un struct puede implementar interfaces, tener métodos, constructores (pero con parámetros), pero no puede heredar de otros structs o clases.
 
 ## Snippets
 
