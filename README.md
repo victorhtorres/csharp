@@ -464,7 +464,7 @@ int[][] jagged = {new int[] {1, 2},
 
 Language-Integrated Query (LINQ) es un conjunto de características presentado en Visual Studio 2008 que agrega capacidades de consulta eficaces a la sintaxis de los lenguajes C# y Visual Basic. LINQ incluye patrones estándar y de fácil aprendizaje para consultar y actualizar datos, y su tecnología se puede extender para utilizar potencialmente cualquier tipo de almacén de datos. Visual Studio incluye ensamblados de proveedores para LINQ que habilitan el uso de LINQ con colecciones de .NET Framework, bases de datos SQL Server, conjuntos de datos de ADO.NET y documentos XML.
 
-Ejemplo:
+Ejemplo 1:
 
 ```csharp
 
@@ -547,7 +547,7 @@ class LINQWithSimpleTypeArray
 
 ```
 
-Ejemplo 2:
+Ejemplo 2: Con POO.
 
 
 ```csharp
@@ -679,6 +679,79 @@ class LINQWithArrayOfObjects
       Console.WriteLine();
    }
 } 
+
+```
+
+Ejemplo 3: Con listas genericas
+
+```csharp
+
+
+// LINQ to Objects using a List<string>.
+using System;
+using System.Linq;
+using System.Collections.Generic;
+
+class LINQWithListCollection
+{
+   static void Main()
+   {
+      // populate a List of strings 
+      var items = new List<string>();
+      items.Add("aQua"); // add "aQua" to the end of the List
+      items.Add("RusT"); // add "RusT" to the end of the List
+      items.Add("yElLow"); // add "yElLow" to the end of the List
+      items.Add("rEd"); // add "rEd" to the end of the List
+
+      // display initial List
+      Console.Write("items contains:");
+      foreach (var item in items)
+      {
+         Console.Write($" {item}");
+      }
+
+      Console.WriteLine(); // output end of line
+
+      // convert to uppercase, select those starting with "R" and sort
+      var startsWithR =
+         from item in items
+            let uppercaseString = item.ToUpper()
+            where uppercaseString.StartsWith("R")
+            orderby uppercaseString
+            select uppercaseString;
+
+      // display query results
+      Console.Write("results of query startsWithR:");
+      foreach (var item in startsWithR)
+      {
+         Console.Write($" {item}");
+      }
+
+      Console.WriteLine(); // output end of line
+
+      items.Add("rUbY"); // add "rUbY" to the end of the List      
+      items.Add("SaFfRon"); // add "SaFfRon" to the end of the List
+
+      // display initial List
+      Console.Write("items contains:");
+      foreach (var item in items)
+      {
+         Console.Write($" {item}");
+      }
+
+      Console.WriteLine(); // output end of line
+
+      // display updated query results
+      Console.Write("results of query startsWithR:");
+      foreach (var item in startsWithR)
+      {
+         Console.Write($" {item}");
+      }
+
+      Console.WriteLine(); // output end of line
+   }
+}
+
 
 ```
 
