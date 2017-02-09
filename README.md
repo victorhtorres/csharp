@@ -31,6 +31,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
 - [LINQ](#linq).
 - [Structs](#structs).
+- [Herencia y clases derivadas](#herencia-y-clases-derivadas).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
@@ -814,6 +815,91 @@ class TestClass
 Resultado: The stored value is: 5
 
 NOTA: Un struct puede implementar interfaces, tener métodos, constructores (pero con parámetros), pero no puede heredar de otros structs o clases.
+
+## Herencia y clases derivadas
+
+En C#, el operador `:`, que equivale a `extends` e `implements` en Java, define la herencia e implementación de interfaces. La clase base siempre debe estar en el extremo izquierdo en la declaración de clase.
+
+Como Java, C# no admite herencia múltiple, lo que significa que las clases no pueden heredar más de una clase. Sin embargo, se pueden utilizar interfaces para ese propósito, de la misma manera que en Java.
+
+Ejemplo:  El código siguiente define una clase denominada CoOrds con dos variables miembro privadas x e y que representan la posición del punto. Se tiene acceso a estas variables mediante propiedades denominadas X e Y, respectivamente:
+
+```csharp
+
+public class CoOrds
+{
+    private int x, y;
+
+    public CoOrds()  // constructor
+    {
+        x = 0;
+        y = 0;
+    }
+
+    public int X
+    {
+        get { return x; }
+        set { x = value; }
+    }
+
+    public int Y
+    {
+        get { return y; }
+        set { y = value; }
+    }
+}
+
+```
+
+Luego, ColorCoOrds hereda todos los campos y métodos de la clase base, a la cual se pueden agregar nuevos campos y métodos para proporcionar características adicionales en la clase derivada, según sea necesario. En este ejemplo, se agrega un miembro privado y descriptores de acceso para agregar color a la clase:
+
+```csharp
+
+public class ColorCoOrds : CoOrds
+{
+    private System.Drawing.Color screenColor;
+
+
+    public ColorCoOrds()  // constructor
+    {
+        screenColor = System.Drawing.Color.Red;
+    }
+
+    public System.Drawing.Color ScreenColor
+    {
+        get { return screenColor; }
+        set { screenColor = value; }
+    }
+}
+
+```
+
+**La palabra clave base**
+
+Se puede tener acceso a los miembros de clase base en una subclase incluso cuando los miembros de base se reemplazan en la superclase utilizando la palabra clave base. Por ejemplo, puede crear una clase derivada que contenga un método con la misma firma que la clase base. Si se precede ese método con la palabra clave new, se indica que se trata de un método totalmente nuevo que pertenece a la clase derivada. También se podría proporcionar un método para tener acceso al método original de la clase base con la palabra clave base.
+
+Ejemplo:
+
+````csharp
+
+public class ColorCoOrds : CoOrds
+{
+    public System.Drawing.Color color;
+
+    public ColorCoOrds() : base ()
+    {
+        color = System.Drawing.Color.Red;
+    }
+
+    public ColorCoOrds(int x, int y) : base (x, y)
+    {
+        color = System.Drawing.Color.Red;
+    }
+}
+
+```
+
+En Java, esta funcionalidad se implementa con la palabra clave `super`.
 
 ## Snippets
 
