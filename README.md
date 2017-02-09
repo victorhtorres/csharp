@@ -29,6 +29,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Matriz unidimensional](#matriz-unidimensional).
  - [Matriz Multidimensional](#matriz-multidimensional).
  - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
+ - [LINQ](#linq).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
@@ -458,6 +459,228 @@ int[][] jagged = {new int[] {1, 2},
 ```
 
 [Gráfica donde ilustra un inicializador de matrices multidimensional](util/inicializador-matrices.png)
+
+## LINQ
+
+Language-Integrated Query (LINQ) es un conjunto de características presentado en Visual Studio 2008 que agrega capacidades de consulta eficaces a la sintaxis de los lenguajes C# y Visual Basic. LINQ incluye patrones estándar y de fácil aprendizaje para consultar y actualizar datos, y su tecnología se puede extender para utilizar potencialmente cualquier tipo de almacén de datos. Visual Studio incluye ensamblados de proveedores para LINQ que habilitan el uso de LINQ con colecciones de .NET Framework, bases de datos SQL Server, conjuntos de datos de ADO.NET y documentos XML.
+
+Ejemplo:
+
+```csharp
+
+// LINQ to Objects using an int array.
+using System;
+using System.Linq;
+
+class LINQWithSimpleTypeArray
+{
+   static void Main()
+   {
+      // create an integer array
+      var values = new[] {2, 9, 5, 0, 3, 7, 1, 4, 8, 5};
+
+      // display original values
+      Console.Write("Original array:");
+      foreach (var element in values)
+      {
+         Console.Write($" {element}");
+      }
+
+      // LINQ query that obtains values greater than 4 from the array
+      var filtered =
+         from value in values // data source is values
+         where value > 4
+         select value;
+
+      // display filtered results
+      Console.Write("\nArray values greater than 4:");
+      foreach (var element in filtered)
+      {
+         Console.Write($" {element}");
+      }
+
+      // use orderby clause to sort original values in ascending order
+      var sorted =
+         from value in values // data source is values
+         orderby value
+         select value;
+
+      // display sorted results
+      Console.Write("\nOriginal array, sorted:");
+      foreach (var element in sorted)
+      {
+         Console.Write($" {element}");
+      }
+
+      // sort the filtered results into descending order
+      var sortFilteredResults =
+         from value in filtered   // data source is LINQ query filtered
+         orderby value descending
+         select value;
+
+      // display the sorted results
+      Console.Write(
+         "\nValues greater than 4, descending order (two queries):");
+      foreach (var element in sortFilteredResults)
+      {
+         Console.Write($" {element}");
+      }
+
+      // filter original array and sort results in descending order
+      var sortAndFilter =
+         from value in values     // data source is values
+         where value > 4
+         orderby value descending
+         select value;
+
+      // display the filtered and sorted results
+      Console.Write(
+         "\nValues greater than 4, descending order (one query):");
+      foreach (var element in sortAndFilter)
+      {
+         Console.Write($" {element}");
+      }
+
+      Console.ReadLine();
+   }
+}
+
+```
+
+Ejemplo 2:
+
+
+```csharp
+
+// Employee class with FirstName, LastName and MonthlySalary properties.
+class Employee
+{
+   public string FirstName { get; } // read-only auto-implemented property
+   public string LastName { get; } // read-only auto-implemented property
+   private decimal monthlySalary; // monthly salary of employee
+
+   // constructor initializes first name, last name and monthly salary
+   public Employee(string firstName, string lastName,
+      decimal monthlySalary)
+   {
+      FirstName = firstName;
+      LastName = lastName;
+      MonthlySalary = monthlySalary;
+   }
+
+   // property that gets and sets the employee's monthly salary
+   public decimal MonthlySalary
+   {
+      get
+      {
+         return monthlySalary;
+      }
+      set
+      {
+         if (value >= 0M) // validate that salary is nonnegative
+         {
+            monthlySalary = value;
+         }
+      }
+   }
+
+   // return a string containing the employee's information
+   public override string ToString() =>
+      $"{FirstName,-10} {LastName,-10} {MonthlySalary,10:C}";
+}
+
+
+```
+
+```csharp
+
+// LINQ to Objects querying an array of Employee objects.
+using System;
+using System.Linq;
+
+class LINQWithArrayOfObjects
+{
+   static void Main()
+   {
+      // initialize array of employees
+      var employees = new[] {
+         new Employee("Jason", "Red", 5000M),
+         new Employee("Ashley", "Green", 7600M),
+         new Employee("Matthew", "Indigo", 3587.5M),
+         new Employee("James", "Indigo", 4700.77M),
+         new Employee("Luke", "Indigo", 6200M),
+         new Employee("Jason", "Blue", 3200M),
+         new Employee("Wendy", "Brown", 4236.4M)};
+
+      // display all employees
+      Console.WriteLine("Original array:");
+      foreach (var element in employees)
+      {
+         Console.WriteLine(element);
+      }
+
+      // filter a range of salaries using && in a LINQ query
+      var between4K6K =
+         from e in employees
+         where (e.MonthlySalary >= 4000M) && (e.MonthlySalary <= 6000M)
+         select e;
+
+      // display employees making between 4000 and 6000 per month
+      Console.WriteLine("\nEmployees earning in the range " +
+         $"{4000:C}-{6000:C} per month:");
+      foreach (var element in between4K6K)
+      {
+         Console.WriteLine(element);
+      }
+
+      // order the employees by last name, then first name with LINQ
+      var nameSorted =
+         from e in employees
+         orderby e.LastName, e.FirstName
+         select e;
+
+      // header
+      Console.WriteLine("\nFirst employee when sorted by name:");
+
+      // attempt to display the first result of the above LINQ query
+      if (nameSorted.Any())
+      {
+         Console.WriteLine(nameSorted.First());
+      }
+      else
+      {
+         Console.WriteLine("not found");
+      }
+
+      // use LINQ to select employee last names
+      var lastNames =
+         from e in employees
+         select e.LastName;
+
+      // use method Distinct to select unique last names
+      Console.WriteLine("\nUnique employee last names:");
+      foreach (var element in lastNames.Distinct())
+      {
+         Console.WriteLine(element);
+      }
+
+      // use LINQ to select first and last names
+      var names =
+         from e in employees
+         select new { e.FirstName, e.LastName };
+
+      // display full names
+      Console.WriteLine("\nNames only:");
+      foreach (var element in names)
+      {
+         Console.WriteLine(element);
+      }
+
+      Console.WriteLine();
+   }
+} 
+
+```
 
 ## Snippets
 
