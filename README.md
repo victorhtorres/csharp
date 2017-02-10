@@ -32,6 +32,8 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [LINQ](#linq).
 - [Structs](#structs).
 - [Herencia y clases derivadas](#herencia-y-clases-derivadas).
+- [Manejo de excepciones](#manejo-de-excepciones).
+ - [Crear tus propias excepciones](#crear-excepciones).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
 - [Fuentes](#fuentes).
@@ -900,6 +902,167 @@ public class ColorCoOrds : CoOrds
 ```
 
 En Java, esta funcionalidad se implementa con la palabra clave `super`.
+
+## Manejo de excepciones
+
+Similar a java.
+
+Ejemplo: División por cero.
+
+```csharp
+
+
+// FormatException and DivideByZeroException handlers.
+using System;
+
+class DivideByZeroExceptionHandling
+{
+   static void Main(string[] args)
+   {
+      var continueLoop = true; // determines whether to keep looping
+
+      do
+      {
+         // retrieve user input and calculate quotient                   
+         try
+         {
+            // int.Parse generates FormatException                    
+            // if argument cannot be converted to an integer          
+            Console.Write("Enter an integer numerator: ");
+            var numerator = int.Parse(Console.ReadLine());
+            Console.Write("Enter an integer denominator: ");
+            var denominator = int.Parse(Console.ReadLine());
+
+            // division generates DivideByZeroException               
+            // if denominator is 0                                    
+            var result = numerator / denominator;
+
+            // display result                                         
+            Console.WriteLine(
+               $"\nResult: {numerator} / {denominator} = {result}");
+            continueLoop = false;
+         }
+         catch (FormatException formatException)
+         {
+            Console.WriteLine($"\n{formatException.Message}");
+            Console.WriteLine(
+               "You must enter two integers. Please try again.\n");
+         }
+         catch (DivideByZeroException divideByZeroException)
+         {
+            Console.WriteLine($"\n{divideByZeroException.Message}");
+            Console.WriteLine(
+               "Zero is an invalid denominator. Please try again.\n");
+         }
+      } while (continueLoop);
+   }
+}
+
+```
+
+### Crear excepciones
+
+Se recomiendan los siguientes pasos:
+
+- Un constructor sin parámetros,
+- Un constructor que recibe un argumento de cadena (el mensaje de error), y
+- Un constructor que recibe un argumento string y un argumento Exception (el error y el objeto de excepción como tal).
+
+Ejemplo: Una excepción para no recibir un valor menor o igual a cero.
+
+```csharp
+
+// NegativeNumberException represents exceptions caused by
+// illegal operations performed on negative numbers.
+using System;
+
+public class NegativeNumberException : Exception
+{
+   // default constructor                                
+   public NegativeNumberException()
+      : base("Illegal operation for a negative number")
+   {
+      // empty body                                      
+   }
+
+   // constructor for customizing error message         
+   public NegativeNumberException(string messageValue)
+      : base(messageValue)
+   {
+      // empty body                                     
+   }
+
+   // constructor for customizing the exception's error
+   // message and specifying the InnerException object 
+   public NegativeNumberException(string messageValue, Exception inner)
+      : base(messageValue, inner)
+   {
+      // empty body                                    
+   } 
+}
+
+```
+
+Clase con el método principal:
+
+
+```csharp
+
+// Demonstrating a user-defined exception class.
+using System;
+
+class SquareRootTest
+{
+   static void Main(string[] args)
+   {
+      var continueLoop = true;
+
+      do
+      {
+         // catch any NegativeNumberException thrown
+         try
+         {
+            Console.Write(
+               "Enter a value to calculate the square root of: ");
+            double inputValue = double.Parse(Console.ReadLine());
+            double result = SquareRoot(inputValue);
+
+            Console.WriteLine(
+               $"The square root of {inputValue} is {result:F6}\n");
+            continueLoop = false;
+         }
+         catch (FormatException formatException)
+         {
+            Console.WriteLine("\n" + formatException.Message);
+            Console.WriteLine("Please enter a double value.\n");
+         }
+         catch (NegativeNumberException negativeNumberException)
+         {
+            Console.WriteLine("\n" + negativeNumberException.Message);
+            Console.WriteLine("Please enter a non-negative value.\n");
+         }
+      } while (continueLoop);
+   }
+
+   // computes square root of parameter; throws 
+   // NegativeNumberException if parameter is negative
+   public static double SquareRoot(double value)
+   {
+      // if negative operand, throw NegativeNumberException
+      if (value < 0)
+      {
+         throw new NegativeNumberException(
+            "Square root of negative number not permitted");
+      }
+      else
+      {
+         return Math.Sqrt(value); // compute square root
+      }
+   }
+}
+
+
+```
 
 ## Snippets
 
