@@ -34,9 +34,14 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Herencia y clases derivadas](#herencia-y-clases-derivadas).
 - [Manejo de excepciones](#manejo-de-excepciones).
  - [Crear tus propias excepciones](#crear-excepciones).
+- [CRUD de un registro con SQL Server](#crud-de-un-registro-con-sql-server).
+ - [Consultar](#consultar).
+ - [Crear](#crear).
+ - [Modificar](#modificar).
+ - [Borrar](#borrar).
+ - [Recorrer una tabla de la bd](#recorrer-una-tabla-de-la-bd).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
-- [CRUD de un registro con SQL Server](#crud-de-un-registro-con-sql-server).
 - [Fuentes](#fuentes).
 
 
@@ -1065,6 +1070,114 @@ class SquareRootTest
 
 ```
 
+
+## CRUD de un registro con SQL Server
+
+### Consultar
+
+```csharp
+
+string cadenaConexion = "YOUR DATA SOURCE:";
+
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            conexion.Open();
+
+            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Your_Table", conexion);
+
+            DataSet dsDatos = new DataSet();
+            sda.Fill(dsDatos, "Persona");
+		
+	    // Mostrar los resultados en un GridView
+            gv_result.DataSource = dsDatos;
+            gv_result.DataBind();
+
+            conexion.Close();
+
+```
+
+### Crear
+
+```csharp
+
+string cadenaConexion = "YOUR DATA SOURCE:";
+string nombre;
+string apellido;.
+
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            conexion.Open();
+
+            SqlCommand script = new SqlCommand("INSERT INTO Your_Table (Nombre, Apellido) " +
+                                                $"VALUES('{nombre}', '{apellido}')", conexion)
+
+
+            try
+            {
+                script.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                conexion.Close();
+            }
+
+```
+
+### Modificar
+
+```csharp
+
+	    string cedula;
+            string celular;
+            string cadenaConexion = "YOUR DATA SOURCE";
+
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            conexion.Open();
+
+            SqlCommand script = new SqlCommand($"UPDATE Your_Table SET Celular='{cel}' WHERE Cedula='{cedula}'", conexion);
+
+            try
+            {
+                script.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                conexion.Close();
+            }
+
+```
+
+### Borrar
+
+```csharp
+
+	    string cedula;
+            string cadenaConexion = "YOUR DATA SOURCE";
+
+            SqlConnection conexion = new SqlConnection(cadenaConexion);
+            conexion.Open();
+
+            SqlCommand script = new SqlCommand($"DELETE FROM Your_Table WHERE Cedula='{cedula}'", conexion);
+
+            try
+            {
+                script.ExecuteNonQuery();
+                conexion.Close();
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                conexion.Close();
+            }
+
+```
+
+### Recorrer una tabla de la bd
+
+
+
 ## Snippets
 
 Algunos pedazos de códigos reutilizables.
@@ -1090,111 +1203,6 @@ class RandomIntegers
         Console.WriteLine();
     }
 }
-
-```
-
-## CRUD de un registro con SQL Server
-
-Ejemplo de **consultar** todos los datos de una tabla:
-
-```csharp
-
-string cadenaConexion = "YOUR DATA SOURCE: En propiedades de la bd.";
-
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-            conexion.Open();
-
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Your_Table", conexion);
-
-            DataSet dsDatos = new DataSet();
-            sda.Fill(dsDatos, "Persona");
-		
-	    // Mostrar los resultados en un GridView
-            gv_result.DataSource = dsDatos;
-            gv_result.DataBind();
-
-            conexion.Close();
-
-```
-
-Ejemplo de **crear** un registro en una tabla:
-
-```csharp
-
-string cadenaConexion = "YOUR DATA SOURCE: En propiedades de la bd.";
-string nombre = // valor del campo.
-string apellido = // valor del campo.
-
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-            conexion.Open();
-
-            SqlCommand script = new SqlCommand("INSERT INTO Your_Table (Nombre, Apellido) " +
-                                                $"VALUES('{nombre}', '{apellido}')", conexion)
-
-
-            try
-            {
-                script.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch(SqlException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                conexion.Close();
-            } 
-
-            conexion.Close();
-
-```
-
-Ejemplo de **modificar** un registro en una tabla:
-
-```csharp
-
-	    string cedula = // valor del campo;
-            string celular = // valor del campo;
-            string cadenaConexion = "YOUR DATA SOURCE: En propiedades de la bd.";
-
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-            conexion.Open();
-
-            SqlCommand script = new SqlCommand($"UPDATE Persona SET Celular='{cel}' WHERE Cedula='{cedula}'", conexion);
-
-            try
-            {
-                script.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                conexion.Close();
-            }
-
-```
-
-Ejemplo de **borrar** un registro en una tabla:
-
-```csharp
-
-	    string cedula = // valor del campo;
-            string cadenaConexion = "YOUR DATA SOURCE: En propiedades de la bd.";
-
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-            conexion.Open();
-
-            SqlCommand script = new SqlCommand($"DELETE FROM Persona WHERE Cedula='{cedula}'", conexion);
-
-            try
-            {
-                script.ExecuteNonQuery();
-                conexion.Close();
-            }
-            catch (SqlException ex)
-            {
-                Console.WriteLine("Error: " + ex.Message);
-                conexion.Close();
-            }
 
 ```
 
