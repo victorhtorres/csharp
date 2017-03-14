@@ -42,6 +42,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Snippets](#snippets).
   - [Números aleatorios](#numeros-aleatorios).
   - [Login en asp.net y SQL Server](#login).
+  - [Recorrer una bd con SQLDataReader y mostrar los datos en una tabla renderizada](#recorrer-bd-con-sqldatareader).
 - [Fuentes](#fuentes).
 
 
@@ -1246,6 +1247,55 @@ protected void btn_accept_Click(object sender, EventArgs e)
         }
 
 ```
+
+### Recorrer bd con SQLDataReader
+
+```csharp
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string cadenaConexion = "Data Source=...";
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                String query = $"Select * From Usuario;";
+
+                SqlCommand command = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    
+                    while (reader.Read())
+                    {
+                        TableRow tRow = new TableRow();
+                        tb_list.Rows.Add(tRow);  
+                        int cont = 0;
+
+                        while (cont <= 5)
+                        {
+                            TableCell tCell = new TableCell();
+                            tCell.Text = reader.GetString(cont);
+                            tRow.Cells.Add(tCell);
+                            cont++;
+                        } 
+
+                    }
+                }
+                else
+                {
+                    lbl_msgError.Text = "<div class=\"alert alert-warning\" role=\"alert\">No hay usuarios en la bd.</div>";
+                }
+
+                reader.Close();
+            }
+        }
+
+
+```
+
+
 
 ## Fuentes
 
