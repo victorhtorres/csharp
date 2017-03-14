@@ -15,33 +15,33 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
 - [Interpolación de cadenas](#interpolacion-de-cadenas).
 - [Formato de cadenas numéricas](#formato-de-cadenas-numericas)
 - [Controles de flujo](#controles-de-flujo).
- - [if-else](#if-else).
- - [Operador condicional ternario](#operador-condicional-ternario).
- - [switch](#switch).
+  - [if-else](#if-else).
+  - [Operador condicional ternario](#operador-condicional-ternario).
+  - [switch](#switch).
 - [Instrucciones de bucle](#instrucciones-de-bucle).
- - [For](#for).
- - [Foreach](#foreach).
- - [While y do while](#while-y-do-while).
+  - [For](#for).
+  - [Foreach](#foreach).
+  - [While y do while](#while-y-do-while).
 - [Propiedades implementadas automáticamente - Getter y Setter](#propiedades-setter-y-getter-automatico).
 - [Los namespaces más utilizados en .NET Framework](#los-namespaces-mas-utilizados).
 - [Enumeraciones](#enumeraciones).
 - [Matrices](#matrices).
- - [Matriz unidimensional](#matriz-unidimensional).
- - [Matriz Multidimensional](#matriz-multidimensional).
- - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
+  - [Matriz unidimensional](#matriz-unidimensional).
+  - [Matriz Multidimensional](#matriz-multidimensional).
+  - [Inicializador de matrices para un arreglo de dos dimensiones](#inicializador-de-matrices).
 - [LINQ](#linq).
 - [Structs](#structs).
 - [Herencia y clases derivadas](#herencia-y-clases-derivadas).
 - [Manejo de excepciones](#manejo-de-excepciones).
- - [Crear tus propias excepciones](#crear-excepciones).
+  - [Crear tus propias excepciones](#crear-excepciones).
 - [CRUD de un registro con SQL Server](#crud-de-un-registro-con-sql-server).
- - [Consultar](#consultar).
- - [Crear](#crear).
- - [Modificar](#modificar).
- - [Borrar](#borrar).
+  - [Consultar](#consultar).
+  - [Crear](#crear).
+  - [Modificar](#modificar).
+  - [Borrar](#borrar).
 - [Snippets](#snippets).
- - [Números aleatorios](#numeros-aleatorios).
- - [Login en asp.net y SQL Server](#login).
+  - [Números aleatorios](#numeros-aleatorios).
+  - [Login en asp.net y SQL Server](#login).
 - [Fuentes](#fuentes).
 
 
