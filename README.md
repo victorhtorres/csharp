@@ -44,6 +44,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
   - [Login en asp.net y SQL Server](#login).
   - [Recorrer una bd con SQLDataReader y mostrar los datos en una tabla renderizada](#recorrer-bd-con-sqldatareader).
   - [Mostrar todos los datos de una tabla en la bd, por medio de GridView y SQLDataReader](#gridview-y-sqldatareader).
+  - [Recorrer una tabla con DataSet](#recorrer-una-tabla-con-dataset).
 - [Fuentes](#fuentes).
 
 
@@ -1332,6 +1333,52 @@ protected void btn_accept_Click(object sender, EventArgs e)
 
 ```
 
+### Recorrer una tabla con DataSet
+
+```csharp
+
+        protected void btn_accept_Click(object sender, EventArgs e)
+        {
+            string cadenaConexion = "Data Source=...";
+            string user = txt_user.Text;
+            string pass = txt_pass.Text;
+            bool login = false;
+
+            // Grabar el nombre de usuario en toda la app
+            Session["usuario"] = user;
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+
+                conexion.Open();
+                string script = $"Select Usuario, Contrasena From Usuario;";
+
+                SqlDataAdapter sda = new SqlDataAdapter(script, conexion);
+
+                DataSet dsDatos = new DataSet();
+                sda.Fill(dsDatos, "Usuario");
+ 
+
+                foreach (DataRow row in dsDatos.Tables[0].Rows)
+                {
+                    if (row[0].ToString() == user && row[1].ToString() == pass)
+                    {
+                        login = true;
+                        Response.Redirect("~/User.aspx");
+                    }
+                }
+
+                if (!login)
+                {
+                    lbl_msgError.Text = "Error: Nombre y/o usuario incorrecto.";
+                }
+
+            } // fin using
+
+        }
+
+
+```
 
 
 ## Fuentes
