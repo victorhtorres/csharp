@@ -888,7 +888,7 @@ Se puede tener acceso a los miembros de clase base en una subclase incluso cuand
 
 Ejemplo:
 
-````csharp
+```csharp
 
 public class ColorCoOrds : CoOrds
 {
