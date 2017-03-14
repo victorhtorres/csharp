@@ -43,6 +43,7 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
   - [Números aleatorios](#numeros-aleatorios).
   - [Login en asp.net y SQL Server](#login).
   - [Recorrer una bd con SQLDataReader y mostrar los datos en una tabla renderizada](#recorrer-bd-con-sqldatareader).
+  - [Mostrar todos los datos de una tabla en la bd, por medio de GridView y SQLDataReader](#gridview-y-sqldatareader).
 - [Fuentes](#fuentes).
 
 
@@ -1290,6 +1291,42 @@ protected void btn_accept_Click(object sender, EventArgs e)
 
                 reader.Close();
             }
+        }
+
+
+```
+
+### GridView y SqlDataReader
+
+```csharp
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string cadenaConexion = "Data Source=...";
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+                String query = $"Select * From Usuario;";
+
+                SqlCommand command = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    GridView1.DataSource = reader;
+                    GridView1.DataBind();
+                }
+                else
+                {
+                    lbl_msgError.Text = "<div class=\"alert alert-warning\" role=\"alert\">No hay datos para mostrar.</div>";
+                }
+
+                reader.Close();
+            }
+
+
         }
 
 
