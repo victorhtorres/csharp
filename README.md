@@ -39,9 +39,9 @@ Referencias rápidas de la sintaxis y snippet sobre el lenguaje de programación
  - [Crear](#crear).
  - [Modificar](#modificar).
  - [Borrar](#borrar).
- - [Recorrer una tabla de la bd](#recorrer-una-tabla-de-la-bd).
 - [Snippets](#snippets).
  - [Números aleatorios](#numeros-aleatorios).
+ - [Login en asp.net y SQL Server](#login).
 - [Fuentes](#fuentes).
 
 
@@ -1203,6 +1203,45 @@ class RandomIntegers
         Console.WriteLine();
     }
 }
+
+```
+
+### Login
+
+Una forma rápida y sencilla es haciendo uso de la clase `SqlDataReader`. Ejemplo:
+
+```csharp
+
+// Evento del botón del login
+
+protected void btn_accept_Click(object sender, EventArgs e)
+        {
+            string cadenaConexion = "Data Source=...";
+            string user = txt_user.Text;
+            string pass = txt_pass.Text;
+
+            using (SqlConnection conexion = new SqlConnection(cadenaConexion))
+            {
+                conexion.Open();
+		
+                String query = $"Select Usuario, Contrasena From Usuario Where Usuario='{user}' AND Contrasena='{pass}';";
+                SqlCommand command = new SqlCommand(query, conexion);
+
+                SqlDataReader reader = command.ExecuteReader();
+
+		// si el query fue correcto, reader debería de tener una fila de resultados, de lo contrario, no existe.
+                if (reader.HasRows)
+                {
+		    // como el logueo fue exitoso, se redirecciona a una nueva página.
+                    Response.Redirect("~/User.aspx");
+                }
+                else
+                {
+                    lbl_msgError.Text = "Error: Nombre y/o usuario incorrecto.";
+                }
+            }
+	    
+        }
 
 ```
 
