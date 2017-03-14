@@ -1239,6 +1239,8 @@ protected void btn_accept_Click(object sender, EventArgs e)
                 {
                     lbl_msgError.Text = "Error: Nombre y/o usuario incorrecto.";
                 }
+		
+		reader.Close();
             }
 	    
         }
