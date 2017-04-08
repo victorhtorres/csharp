@@ -1076,25 +1076,70 @@ class SquareRootTest
 
 ## CRUD de un registro con SQL Server
 
-### Consultar
+### Consultar con DataReader
 
 ```csharp
 
-string cadenaConexion = "YOUR DATA SOURCE:";
+static void ConsultaDataReader()
+{
+    String connectionString = "Your DataSource...";
 
-            SqlConnection conexion = new SqlConnection(cadenaConexion);
-            conexion.Open();
+    using (SqlConnection connection = new SqlConnection(connectionString))
+    {
 
-            SqlDataAdapter sda = new SqlDataAdapter("SELECT * FROM Your_Table", conexion);
+        SqlCommand command = new SqlCommand("SELECT CategoryID, CategoryName FROM Categories;", connection);
+        connection.Open();
 
-            DataSet dsDatos = new DataSet();
-            sda.Fill(dsDatos, "Persona");
-		
-	    // Mostrar los resultados en un GridView
-            gv_result.DataSource = dsDatos;
-            gv_result.DataBind();
+        SqlDataReader reader = command.ExecuteReader();
 
-            conexion.Close();
+        if (reader.HasRows)
+        {
+            while (reader.Read())
+            {
+                Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
+                    reader.GetString(1));
+            }
+        }
+        else
+        {
+            Console.WriteLine("No rows found.");
+        }
+        
+        reader.Close();
+    }
+}
+
+```
+
+### Consultar con DataAdapter
+
+```csharp
+private void ConsultarDataAdapter()
+        {
+            string cadConection = "Your DataSource";
+
+            using(SqlConnection connection = new SqlConnection(cadConection))
+            {
+                connection.Open();
+
+                // crea la instancia de conexión y envío del nombre del procedimiento almacenado
+                SqlCommand command = new SqlCommand("Your query", connection);
+
+                // modificar la intepretación de llamado
+                command.CommandType = CommandType.StoredProcedure;
+
+
+                SqlDataAdapter sda = new SqlDataAdapter(command);
+                DataSet dsDatos = new DataSet();
+                sda.Fill(dsDatos, "Menu");
+
+                foreach (DataRow row in dsDatos.Tables["Menu"].Rows)
+                {
+                    // Recorrer las tablas...
+                }
+
+            } // end using
+        }
 
 ```
 
